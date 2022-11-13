@@ -1,0 +1,29 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageaccountname": {
+            "value": "march-storage-01"
+        },
+        "location": {
+            "value": "eastus"
+        },
+        "virtualnetwork": {
+            "value": "march-vnet-01"
+        },
+        "windowsvm": {
+            "value": "march-vm-01"
+        },
+        "adimiusername": {
+            "value": "adminusername"
+        },
+        "adminpassword": {
+            "reference": {
+                "keyVault": {
+                  "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+                },
+                "secretName": "ExamplePassword"
+              }
+        }
+    }
+}
